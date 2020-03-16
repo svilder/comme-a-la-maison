@@ -2,7 +2,8 @@ class ResourcesController < ApplicationController
     skip_before_action :authenticate_user!, only: [ :index ]
 
   def index
-    @resources = Resource.where(state: "approved")
+    @resources = Resource.all
+    # @resources = Resource.where(state: "approved")
   end
 
   def new

@@ -10,10 +10,15 @@
   <%= link_to "proposer une resource", new_resource_path %>
 
   <% @resources.each do |resource| %>
-    <div class="card">
+    <div class="resource-card">
       <p><%= link_to resource.link, resource.link %></p>
       <p><%= resource.description %></p>
+      <%= public_icon(resource) %>
+      <%= objectif_icon(resource) %>
+      <%= activities_icon(resource) %>
     </div>
   <% end %>
-
+ <p>toto</p>
 </div>
+
+
