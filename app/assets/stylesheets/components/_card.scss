@@ -1,0 +1,15 @@
+.resource-card {
+  background: transparent;
+  border: solid 2px black;
+  border-radius: 4px;
+  padding: 32px;
+  img {
+    width: 64px;
+  }
+  a {
+    color: black;
+  }
+  a:hover {
+    color: black;
+  }
+}

@@ -1,8 +1,28 @@
-.resource-card {
-  background: transparent;
-  border: solid 2px black;
-  border-radius: 4px;
-  img {
-    width: 60px;
+.resource-new {
+  text-align: right;
+  display: block;
+  margin: 8px;
+  a {
+    color: black;
+    text-decoration: none;
   }
+  a:hover {
+    color: black;
+  }
+}
+
+h1 {
+  font-size: 40px;
+  color: black;
+  text-align: center;
+}
+
+h4 {
+  font-size: 20px;
+  color: black;
+  text-align: center;
+}
+
+p {
+  font-style: "Nunito";
 }

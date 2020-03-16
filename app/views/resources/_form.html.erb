@@ -1,9 +1,12 @@
-<%= simple_form_for @resource do |f| %>
-  <%= f.error_notification %>
-  <%= f.input :link, label: "adresse du lien" %>
-  <%= f.input :description, label: "courte description" %>
-  <%= f.input :public, as: :check_boxes, collection: Resource::PUBLIC, input_html: { multiple: true } %>
-  <%= f.input :objectif, as: :check_boxes, collection: Resource::OBJECTIF, input_html: { multiple: true } %>
-  <%= f.input :activity_type, as: :check_boxes, collection: Resource::ACTIVITIES, input_html: { multiple: true } %>
-  <%= f.button :submit, class: "" %>
-<% end %>
+<div class="container mt-5">
+  <%= simple_form_for @resource do |f| %>
+    <%= f.error_notification %>
+    <%= f.input :link, label: "adresse du lien" %>
+    <%= f.input :description, label: "courte description" %>
+    <%= f.input :public, as: :check_boxes, collection: Resource::PUBLIC %>
+    <%= f.input :objectif, as: :check_boxes, collection: Resource::OBJECTIF %>
+    <%= f.input :activity_type, as: :check_boxes, collection: Resource::ACTIVITIES %>
+    <%= f.button :submit, class: "" %>
+  <% end %>
+
+</div>

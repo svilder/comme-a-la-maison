@@ -1,24 +1,31 @@
+<%= link_to root_path do %>
+  <%= image_tag "logo.png", alt: "logo", class: "logo" %>
+<% end %>
 <div class="container">
-  <%= link_to root_path do %>
-    <%= image_tag "logo.png", alt: "logo" %>
-  <% end %>
   <h1>Comme à la maison</h1>
   <h4>liste de ressources <strong>gratuites</strong></h4>
 
   <div class="search"></div>
 
-  <%= link_to "proposer une resource", new_resource_path %>
+  <div class="resource-new">
+    <i class="fas fa-long-arrow-alt-right"></i>
+    <%= link_to "proposer une resource", new_resource_path %>
+  </div>
 
   <% @resources.each do |resource| %>
     <div class="resource-card">
       <p><%= link_to resource.link, resource.link %></p>
       <p><%= resource.description %></p>
-      <%= public_icon(resource) %>
-      <%= objectif_icon(resource) %>
-      <%= activities_icon(resource) %>
+      <div class="d-flex justify-content-between mb-4">
+        <%= public_icon(resource) %>
+        <%= objectif_icon(resource) %>
+      </div>
+      <div class="d-flex justify-content-center">
+        <%= activities_icon(resource) %>
+      </div>
     </div>
   <% end %>
- <p>toto</p>
+
 </div>
 
 
