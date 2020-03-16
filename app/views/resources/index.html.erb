@@ -1,3 +1,19 @@
-<h1>index</h1>
+<div class="container">
+  <%= link_to root_path do %>
+    <%= image_tag "logo.png", alt: "logo" %>
+  <% end %>
+  <h1>Comme à la maison</h1>
+  <h4>liste de ressources <strong>gratuites</strong></h4>
 
-<%= link_to "post a resource", new_resource_path %>
+  <div class="search"></div>
+
+  <%= link_to "proposer une resource", new_resource_path %>
+
+  <% @resources.each do |resource| %>
+    <div class="card">
+      <p><%= link_to resource.link, resource.link %></p>
+      <p><%= resource.description %></p>
+    </div>
+  <% end %>
+
+</div>
