@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 2020_03_16_153436) do
     t.string "public"
     t.string "objectif"
     t.string "activity_type"
-    t.string "state"
+    t.string "state", default: "pending"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

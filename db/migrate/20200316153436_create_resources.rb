@@ -6,7 +6,7 @@ class CreateResources < ActiveRecord::Migration[6.0]
       t.string :public
       t.string :objectif
       t.string :activity_type
-      t.string :state
+      t.string :state, default: "pending"
       t.references :user, null: false, foreign_key: true
 
       t.timestamps
