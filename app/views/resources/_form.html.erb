@@ -3,10 +3,31 @@
     <%= f.error_notification %>
     <%= f.input :link, label: "adresse du lien" %>
     <%= f.input :description, label: "courte description" %>
-    <%= f.input :public, as: :check_boxes, collection: Resource::PUBLIC %>
-    <%= f.input :objectif, as: :check_boxes, collection: Resource::OBJECTIF %>
-    <%= f.input :activity_type, as: :check_boxes, collection: Resource::ACTIVITIES %>
+    <%= f.input :apprentissage, as: :check_boxes %>
+    <%= f.input :divertissement, as: :check_boxes %>
+  <%# end %>
+  <%#= simple_form_for @activity_type do |f| %>
+    <%= f.input :regarder, as: :check_boxes %>
+    <%= f.input :lire, as: :check_boxes %>
+    <%= f.input :ecouter, as: :check_boxes %>
+    <%= f.input :jouer, as: :check_boxes %>
+    <%= f.input :fabriquer, as: :check_boxes %>
+  <%# end %>
+  <%#= simple_form_for @public do |f| %>
+    <%= f.input :enfants, as: :check_boxes %>
+    <%= f.input :adultes, as: :check_boxes %>
+  <%# end %>
+
+
     <%= f.button :submit, class: "" %>
   <% end %>
 
 </div>
+
+<%#= f.input :accepts, as: :boolean, checked_value: true, unchecked_value: false %>
+
+        <%#= f.association :public %>
+    <%#= f.association :objectif, as: :check_boxes %>
+    <%#= f.association :activity_type, as: :check_boxes %>
+
+
