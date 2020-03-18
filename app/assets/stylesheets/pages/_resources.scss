@@ -23,11 +23,23 @@ h4 {
   text-align: center;
 }
 
-p {
-  font-style: "Nunito";
-}
-
 .log-out {
   color: black;
   margin: 16px;
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+  margin: 32px;
+}
+
+.search-bar {
+  height: 100%;
+}
+
+.activity-type a:hover,
+.public a:hover,
+.objectif a:hover {
+  text-decoration: none;
 }

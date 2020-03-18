@@ -15,8 +15,8 @@ ActiveAdmin.register Resource do
     column "Lien" do |resource|
       link_to resource.link, admin_resource_path(resource)
     end
-    column "State", sortable: :state do |resource|
-      link_to resource.state, admin_resource_path(resource)
+    column "APPROVE", sortable: :state do |resource|
+      link_to resource.state, approve_path(resource), method: :patch
     end
     column "Kids", sortable: :kids do |resource|
       link_to resource.kids, admin_resource_path(resource)
