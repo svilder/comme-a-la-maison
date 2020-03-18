@@ -12,6 +12,7 @@ class ResourcesController < ApplicationController
 
   def create
     @resource = Resource.new(resource_params)
+    @resource.user_id = current_user.id
     if @resource.save
       redirect_to resources_path
     else
@@ -36,6 +37,6 @@ class ResourcesController < ApplicationController
 
   def resource_params
     params.require(:resource).permit(:description, :link, :kids, :adults,
-      :fun, :learn, :read, :listen, :play, :make)
+      :fun, :learn, :read, :listen, :play, :make, :watch, :user_id)
   end
 end

@@ -1,6 +1,13 @@
-<%= link_to root_path do %>
-  <%= image_tag "logo.png", alt: "logo", class: "logo" %>
-<% end %>
+<div class="d-flex justify-content-between">
+  <%= link_to root_path do %>
+    <%= image_tag "logo.png", alt: "logo", class: "logo" %>
+  <% end %>
+  <% if user_signed_in? %>
+    <%= link_to destroy_user_session_path, method: :delete, data: { confirm: "Voulez-vous vraiment vous déconnecter ?" }, class: "log-out" do%>
+      <i class="fas fa-sign-out-alt"></i>
+    <% end %>
+  <% end %>
+</div>
 <div class="container">
   <h1>Comme à la maison</h1>
   <h4>liste de ressources <strong>gratuites</strong></h4>
@@ -14,7 +21,7 @@
 
   <% @resources.each do |resource| %>
     <div class="resource-card">
-      <p><%= link_to resource.link, resource.link %></p>
+      <p><%= link_to resource.link, resource.link, target: "_blank" %></p>
       <p><%= resource.description %></p>
       <div class="d-flex justify-content-between mb-4">
         <div class="public">

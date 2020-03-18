@@ -14,9 +14,10 @@
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, "Log in" %>
+      <%= f.button :submit, "Log in", class: "btn btn-outline-dark" %>
     </div>
   <% end %>
-
-  <%= render "devise/shared/links" %>
+  <p class="text-muted mt-2">
+    <%= render "devise/shared/links" %>
+  </p>
 </div>
