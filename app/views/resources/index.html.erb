@@ -12,7 +12,60 @@
   <h1>Comme à la maison</h1>
   <h4>liste de ressources <strong>gratuites</strong></h4>
 
-  <div class="search"></div>
+  <div class="search">
+    <%= form_tag resources_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "search-bar",
+        placeholder: "Cherche une ressource"
+      %>
+      <%= submit_tag "Chercher", class: "btn btn-outline-dark" %>
+    <% end %>
+    <div class="text-muted m-2">
+      <%= link_to "annuler", resources_path, class: "text-reset" %>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-between flex-wrap">
+    <div class="public">
+      <p>Public : </p>
+      <%= link_to 'resources?public=adults' do %>
+        <%= image_tag "adults.png", alt: "adultes", class: "icon" %>
+      <% end %>
+      <%= link_to 'resources?public=kids' do %>
+        <%= image_tag "kids.png", alt: "enfants", class: "icon" %>
+      <% end %>
+    </div>
+
+    <div class="objectif">
+      <p>Objectif :</p>
+      <%= link_to 'resources?objectif=fun' do %>
+        <%= image_tag "fun.png", alt: "divertissement", class: "icon" %>
+      <% end %>
+      <%= link_to 'resources?objectif=learn' do %>
+        <%= image_tag "learn.png", alt: "apprentissage", class: "icon" %>
+      <% end %>
+    </div>
+
+    <div class="activity-type">
+      <p>Type d'activité :</p>
+      <%= link_to 'resources?activity=read' do %>
+        <%= image_tag "read.png", alt: "lire", class: "icon" %>
+      <% end %>
+      <%= link_to 'resources?activity=listen' do %>
+        <%= image_tag "listen.png", alt: "écouter", class: "icon" %>
+      <% end %>
+      <%= link_to 'resources?activity=make' do %>
+        <%= image_tag "make.png", alt: "créer", class: "icon" %>
+      <% end %>
+      <%= link_to 'resources?activity=watch' do %>
+        <%= image_tag "watch.png", alt: "regarder", class: "icon" %>
+      <% end %>
+      <%= link_to 'resources?activity=play' do %>
+        <%= image_tag "play.png", alt: "jouer", class: "icon" %>
+      <% end %>
+    </div>
+  </div>
 
   <div class="resource-new">
     <i class="fas fa-long-arrow-alt-right"></i>
