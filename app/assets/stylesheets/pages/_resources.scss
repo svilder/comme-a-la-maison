@@ -43,3 +43,18 @@ h4 {
 .objectif a:hover {
   text-decoration: none;
 }
+
+.footer {
+  text-align: right;
+  font-weight: light;
+  color: rgb(100, 100, 100);
+  padding: 104px 72px 16px 72px;
+  background: linear-gradient($light-gray, rgb(200, 200, 200));;
+  a {
+    color: black;
+    text-decoration: none;
+  }
+  a:hover {
+    color: black;
+  }
+}
