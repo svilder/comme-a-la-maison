@@ -15,7 +15,62 @@ if Rails.env.development?
   Resource.destroy_all
   User.destroy_all
   user = User.create!(email: "yo@yo.com", password:"yoyoyo")
-  resource = Resource.create!(user_id: user.id, description: "Livres en téléchargement", link: "https://ww.1001ebooks.com/accueil/", public: "Adultes", objectif: "Se divertir", activity_type: "lire")
+  resource = Resource.create!(
+    user_id: user.id,
+    description: "Livres en téléchargement",
+    link: "https://ww.1001ebooks.com/accueil/",
+    kids: true,
+    adults: true,
+    fun: true,
+    learn: false,
+    read: true,
+    listen: false,
+    play: false,
+    make: false,
+    watch: false
+    )
+  resource1 = Resource.create!(
+    user_id: user.id,
+    description: "Truc super",
+    link: "https://www.hugolescargot.com/",
+    kids: true,
+    adults: false,
+    fun: true,
+    learn: true,
+    read: false,
+    listen: false,
+    play: true,
+    make: true,
+    watch: false
+    )
+  resource2 = Resource.create!(
+    user_id: user.id,
+    description: "Trop bien",
+    link: "https://bibliotheques.paris.fr/numerique/",
+    kids: false,
+    adults: true,
+    fun: true,
+    learn: true,
+    read: true,
+    listen: false,
+    play: false,
+    make: false,
+    watch: false
+    )
+  resource3 = Resource.create!(
+    user_id: user.id,
+    description: "very goood",
+    link: "https://www.britishcouncil.fr/anglais/en-ligne",
+    kids: false,
+    adults: true,
+    fun: false,
+    learn: true,
+    read: true,
+    listen: true,
+    play: false,
+    make: false,
+    watch: true
+    )
 end
 
 puts "> #{User.count} users"

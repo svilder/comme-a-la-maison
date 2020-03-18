@@ -2,7 +2,8 @@ class ResourcesController < ApplicationController
     skip_before_action :authenticate_user!, only: [ :index ]
 
   def index
-    @resources = Resource.where(state: "approved")
+    @resources = Resource.all
+    # @resources = Resource.where(state: "approved")
   end
 
   def new
@@ -11,6 +12,7 @@ class ResourcesController < ApplicationController
 
   def create
     @resource = Resource.new(resource_params)
+    @resource.user_id = current_user.id
     if @resource.save
       redirect_to resources_path
     else
@@ -34,6 +36,7 @@ class ResourcesController < ApplicationController
   private
 
   def resource_params
-    params.require(:resource).permit(:description, :link, :public, :objectif, :activity_type)
+    params.require(:resource).permit(:description, :link, :kids, :adults,
+      :fun, :learn, :read, :listen, :play, :make, :watch, :user_id)
   end
 end

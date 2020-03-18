@@ -1,9 +1,47 @@
-<%= simple_form_for @resource do |f| %>
-  <%= f.error_notification %>
-  <%= f.input :link, label: "adresse du lien" %>
-  <%= f.input :description, label: "courte description" %>
-  <%= f.input :public, as: :check_boxes, collection: Resource::PUBLIC, input_html: { multiple: true } %>
-  <%= f.input :objectif, as: :check_boxes, collection: Resource::OBJECTIF, input_html: { multiple: true } %>
-  <%= f.input :activity_type, as: :check_boxes, collection: Resource::ACTIVITIES, input_html: { multiple: true } %>
-  <%= f.button :submit, class: "" %>
-<% end %>
+<div class="container mt-5">
+  <%= simple_form_for @resource do |f| %>
+    <%= f.error_notification %>
+    <%= f.input :link, label: "adresse du lien" %>
+    <%= f.input :description, label: "courte description" %>
+    <p class="mb-1">public :</p>
+    <div class="form-inline mb-3">
+      <div class="pr-3">
+        <%= f.input :kids, label: "enfants", as: :boolean, checked_value: true, unchecked_value: false %>
+      </div>
+      <div class="">
+        <%= f.input :adults, label: "adultes", as: :boolean, checked_value: true, unchecked_value: false %>
+      </div>
+    </div>
+    <p class="mb-1">objectif :</p>
+    <div class="form-inline mb-3">
+      <div class="pr-3">
+        <%= f.input :fun, label: "divertissement", as: :boolean, checked_value: true, unchecked_value: false %>
+      </div>
+      <div class="">
+        <%= f.input :learn, label: "apprentissage", as: :boolean, checked_value: true, unchecked_value: false %>
+      </div>
+    </div>
+    <p class="mb-1">type d'activité :</p>
+    <div class="form-inline mb-3">
+      <div class="pr-3">
+        <%= f.input :read, label: "lire", as: :boolean, checked_value: true, unchecked_value: false %>
+      </div>
+      <div class="pr-3">
+        <%= f.input :listen, label: "écouter", as: :boolean, checked_value: true, unchecked_value: false %>
+      </div>
+      <div class="pr-3">
+        <%= f.input :play, label: "jouer", as: :boolean, checked_value: true, unchecked_value: false %>
+      </div>
+      <div class="pr-3">
+        <%= f.input :make, label: "créer", as: :boolean, checked_value: true, unchecked_value: false %>
+      </div>
+      <div class="">
+        <%= f.input :watch, label: "regarder", as: :boolean, checked_value: true, unchecked_value: false %>
+      </div>
+    </div>
+    <%= f.button :submit, value: "envoyer", class: "btn-outline-dark" %>
+  <% end %>
+  <p class="text-muted mt-2">
+    <%= link_to "retourner sur le site", resources_path, class: "text-reset" %>
+  </p>
+</div>

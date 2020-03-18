@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_16_153436) do
+ActiveRecord::Schema.define(version: 2020_03_18_083852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,13 +44,19 @@ ActiveRecord::Schema.define(version: 2020_03_16_153436) do
   create_table "resources", force: :cascade do |t|
     t.string "description"
     t.string "link"
-    t.string "public"
-    t.string "objectif"
-    t.string "activity_type"
     t.string "state", default: "pending"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "kids"
+    t.boolean "adults"
+    t.boolean "fun"
+    t.boolean "learn"
+    t.boolean "read"
+    t.boolean "listen"
+    t.boolean "play"
+    t.boolean "make"
+    t.boolean "watch"
     t.index ["user_id"], name: "index_resources_on_user_id"
   end
 
