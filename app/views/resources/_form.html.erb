@@ -3,31 +3,42 @@
     <%= f.error_notification %>
     <%= f.input :link, label: "adresse du lien" %>
     <%= f.input :description, label: "courte description" %>
-    <%= f.input :apprentissage, as: :check_boxes %>
-    <%= f.input :divertissement, as: :check_boxes %>
-  <%# end %>
-  <%#= simple_form_for @activity_type do |f| %>
-    <%= f.input :regarder, as: :check_boxes %>
-    <%= f.input :lire, as: :check_boxes %>
-    <%= f.input :ecouter, as: :check_boxes %>
-    <%= f.input :jouer, as: :check_boxes %>
-    <%= f.input :fabriquer, as: :check_boxes %>
-  <%# end %>
-  <%#= simple_form_for @public do |f| %>
-    <%= f.input :enfants, as: :check_boxes %>
-    <%= f.input :adultes, as: :check_boxes %>
-  <%# end %>
-
-
-    <%= f.button :submit, class: "" %>
+    <p>Public :</p>
+    <div class="form-inline">
+      <div class="pr-2">
+        <%= f.input :kids, label: "Enfants", as: :boolean, checked_value: true, unchecked_value: false %>
+      </div>
+      <div class="">
+        <%= f.input :adults, label: "Adultes", as: :boolean, checked_value: true, unchecked_value: false%>
+      </div>
+    </div>
+    <p>Objectif :</p>
+    <div class="form-inline">
+      <div class="pr-2">
+        <%= f.input :fun, label: "Divertissement", as: :boolean, checked_value: true, unchecked_value: false %>
+      </div>
+      <div class="">
+        <%= f.input :learn, label: "Apprentissage", as: :boolean, checked_value: true, unchecked_value: false %>
+      </div>
+    </div>
+    <p>Type d'activité :</p>
+    <div class="form-inline">
+      <div class="pr-2">
+        <%= f.input :read, label: "Lire", as: :boolean, checked_value: true, unchecked_value: false %>
+      </div>
+      <div class="pr-2">
+        <%= f.input :listen, label: "Écouter", as: :boolean, checked_value: true, unchecked_value: false %>
+      </div>
+      <div class="pr-2">
+        <%= f.input :play, label: "Jouer", as: :boolean, checked_value: true, unchecked_value: false %>
+      </div>
+      <div class="pr-2">
+        <%= f.input :make, label: "Créer", as: :boolean, checked_value: true, unchecked_value: false %>
+      </div>
+      <div class="">
+        <%= f.input :watch, label: "Regarder", as: :boolean, checked_value: true, unchecked_value: false %>
+      </div>
+    </div>
+    <%= f.button :submit, value: "Envoyer", class: "btn-primary" %>
   <% end %>
-
 </div>
-
-<%#= f.input :accepts, as: :boolean, checked_value: true, unchecked_value: false %>
-
-        <%#= f.association :public %>
-    <%#= f.association :objectif, as: :check_boxes %>
-    <%#= f.association :activity_type, as: :check_boxes %>
-
-

@@ -17,11 +17,23 @@
       <p><%= link_to resource.link, resource.link %></p>
       <p><%= resource.description %></p>
       <div class="d-flex justify-content-between mb-4">
-        <%= public_icon(resource) %>
-        <%= objectif_icon(resource) %>
+        <div class="public">
+          <%= adult_icon(resource) %>
+          <%= kid_icon(resource) %>
+        </div>
+        <div class="objectif">
+          <%= learn_icon(resource) %>
+          <%= fun_icon(resource) %>
+        </div>
       </div>
       <div class="d-flex justify-content-center">
-        <%= activities_icon(resource) %>
+        <div class="activity-type">
+          <%= read_icon(resource) %>
+          <%= listen_icon(resource) %>
+          <%= watch_icon(resource) %>
+          <%= play_icon(resource) %>
+          <%= make_icon(resource) %>
+        </div>
       </div>
     </div>
   <% end %>

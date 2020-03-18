@@ -13,27 +13,65 @@ AdminUser.create!(email: 'admin@example.com', password: 'password', password_con
 
 if Rails.env.development?
   Resource.destroy_all
-  Objectif.destroy_all
-  ActivityType.destroy_all
-  Public.destroy_all
   User.destroy_all
   user = User.create!(email: "yo@yo.com", password:"yoyoyo")
-  apprentissage = Objectif.create!(name: "Apprentissage")
-  divertissement = Objectif.create!(name: "Divertissement")
-  enfants = Public.create!(name: "Enfants")
-  adultes = Public.create!(name: "Adultes")
-  regarder = ActivityType.create!(name: "Regarder")
-  jouer = ActivityType.create!(name: "Jouer")
-  lire = ActivityType.create!(name: "Lire")
-  ecouter = ActivityType.create!(name: "Ecouter")
-  fabriquer = ActivityType.create!(name: "Fabriquer")
-  resource = Resource.create!(user_id: user.id, description: "Livres en téléchargement", link: "https://ww.1001ebooks.com/accueil/")
-  resource = Resource.create!(user_id: user.id, description: "Truc super", link: "https://www.hugolescargot.com/")
-  resource = Resource.create!(user_id: user.id, description: "Trop bien", link: "https://bibliotheques.paris.fr/numerique/")
+  resource = Resource.create!(
+    user_id: user.id,
+    description: "Livres en téléchargement",
+    link: "https://ww.1001ebooks.com/accueil/",
+    kids: true,
+    adults: true,
+    fun: true,
+    learn: false,
+    read: true,
+    listen: false,
+    play: false,
+    make: false,
+    watch: false
+    )
+  resource1 = Resource.create!(
+    user_id: user.id,
+    description: "Truc super",
+    link: "https://www.hugolescargot.com/",
+    kids: true,
+    adults: false,
+    fun: true,
+    learn: true,
+    read: false,
+    listen: false,
+    play: true,
+    make: true,
+    watch: false
+    )
+  resource2 = Resource.create!(
+    user_id: user.id,
+    description: "Trop bien",
+    link: "https://bibliotheques.paris.fr/numerique/",
+    kids: false,
+    adults: true,
+    fun: true,
+    learn: true,
+    read: true,
+    listen: false,
+    play: false,
+    make: false,
+    watch: false
+    )
+  resource3 = Resource.create!(
+    user_id: user.id,
+    description: "very goood",
+    link: "https://www.britishcouncil.fr/anglais/en-ligne",
+    kids: false,
+    adults: true,
+    fun: false,
+    learn: true,
+    read: true,
+    listen: true,
+    play: false,
+    make: false,
+    watch: true
+    )
 end
 
 puts "> #{User.count} users"
-puts "> #{Objectif.count} objectif"
-puts "> #{Public.count} public"
-puts "> #{ActivityType.count} activity_type"
 puts "> #{Resource.count} resources"
