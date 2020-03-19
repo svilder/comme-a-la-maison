@@ -34,4 +34,16 @@ module ApplicationHelper
   def make_icon(resource)
     image_tag "make.png", alt: "fabriquer" if resource.make
   end
+
+  def class_active(action)
+    if params[:category]
+      if params[:category].include?(action)
+        "box active"
+      else
+        "box"
+      end
+    else
+      "box"
+    end
+  end
 end

@@ -59,6 +59,9 @@ h4 {
   border-radius: 4px;
   padding: 16px 24px;
   margin: 4px;
+  &.active {
+    background-color: rgb(200, 200, 200);
+  }
   p {
     margin: 0;
     font-size: smaller;

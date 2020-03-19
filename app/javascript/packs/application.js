@@ -22,6 +22,10 @@ require("channels")
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
 import "bootstrap";
-import { boxActive } from "../components/box_active";
+import { Application } from "stimulus";
+import { definitionsFromContext } from "stimulus/webpack-helpers";
 
-boxActive();
+// init stimulus
+const application = Application.start();
+const controllers = require.context('../controllers', true, /\.js$/);
+application.load(definitionsFromContext(controllers));

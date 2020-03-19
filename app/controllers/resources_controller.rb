@@ -11,9 +11,9 @@ class ResourcesController < ApplicationController
       @resources = Resource.approved.where(sql_query, query: "%#{params[:query]}%")
     else
       @resources = Resource.approved
-      @resources = Resource.approved.where("#{params[:public]} = true") if params[:public]
-      @resources = Resource.approved.where("#{params[:objectif]} = true") if params[:objectif]
-      @resources = Resource.approved.where("#{params[:activity]} = true") if params[:activity]
+      @resources = Resource.approved.where("#{params[:category]} = true") if params[:category]
+      # @resources = Resource.approved.where("#{params[:objectif]} = true") if params[:objectif]
+      # @resources = Resource.approved.where("#{params[:activity]} = true") if params[:activity]
     end
   end
 
