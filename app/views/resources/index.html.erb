@@ -28,41 +28,61 @@
   <div class="d-flex justify-content-between flex-wrap">
     <div class="public">
       <p>Public : </p>
-      <%= link_to 'resources?public=adults' do %>
-        <%= image_tag "adults.png", alt: "adultes", class: "icon" %>
-      <% end %>
-      <%= link_to 'resources?public=kids' do %>
-        <%= image_tag "kids.png", alt: "enfants", class: "icon" %>
-      <% end %>
+      <div class="d-flex mb-3">
+        <%= link_to 'resources?public=adults', class: "box" do %>
+          <%= image_tag "adults.png", alt: "adultes", class: "icon" %>
+          <p>adultes</p>
+        <% end %>
+        <%= link_to 'resources?public=kids', class: "box" do %>
+          <%= image_tag "kids.png", alt: "enfants", class: "icon" %>
+          <p>enfants</p>
+        <% end %>
+      </div>
     </div>
 
     <div class="objectif">
       <p>Objectif :</p>
-      <%= link_to 'resources?objectif=fun' do %>
-        <%= image_tag "fun.png", alt: "divertissement", class: "icon" %>
-      <% end %>
-      <%= link_to 'resources?objectif=learn' do %>
-        <%= image_tag "learn.png", alt: "apprentissage", class: "icon" %>
-      <% end %>
+      <div class="d-flex mb-3">
+        <%= link_to 'resources?objectif=fun', class: "box" do %>
+          <%= image_tag "fun.png", alt: "divertissement", class: "icon" %>
+          <p>se divertir</p>
+        <% end %>
+        <%= link_to 'resources?objectif=learn', class: "box" do %>
+          <%= image_tag "learn.png", alt: "apprentissage", class: "icon" %>
+          <p>apprendre</p>
+        <% end %>
+      </div>
     </div>
 
     <div class="activity-type">
       <p>Type d'activité :</p>
-      <%= link_to 'resources?activity=read' do %>
-        <%= image_tag "read.png", alt: "lire", class: "icon" %>
-      <% end %>
-      <%= link_to 'resources?activity=listen' do %>
-        <%= image_tag "listen.png", alt: "écouter", class: "icon" %>
-      <% end %>
-      <%= link_to 'resources?activity=make' do %>
-        <%= image_tag "make.png", alt: "créer", class: "icon" %>
-      <% end %>
-      <%= link_to 'resources?activity=watch' do %>
-        <%= image_tag "watch.png", alt: "regarder", class: "icon" %>
-      <% end %>
-      <%= link_to 'resources?activity=play' do %>
-        <%= image_tag "play.png", alt: "jouer", class: "icon" %>
-      <% end %>
+
+      <div class="d-flex flex-wrap">
+        <%= link_to 'resources?activity=read', class: "box" do %>
+          <%= image_tag "read.png", alt: "lire", class: "icon" %>
+          <p>lire</p>
+        <% end %>
+
+        <%= link_to 'resources?activity=listen', class: "box" do %>
+          <%= image_tag "listen.png", alt: "écouter", class: "icon" %>
+          <p>écouter</p>
+        <% end %>
+
+        <%= link_to 'resources?activity=make', class: "box" do %>
+          <%= image_tag "make.png", alt: "créer", class: "icon" %>
+          <p>créer</p>
+        <% end %>
+
+        <%= link_to 'resources?activity=watch', class: "box" do %>
+          <%= image_tag "watch.png", alt: "regarder", class: "icon" %>
+          <p>regarder</p>
+        <% end %>
+
+        <%= link_to 'resources?activity=play', class: "box" do %>
+          <%= image_tag "play.png", alt: "jouer", class: "icon" %>
+          <p>jouer</p>
+        <% end %>
+      </div>
     </div>
   </div>
 
@@ -98,6 +118,6 @@
   <% end %>
 </div>
 <div class="footer">
-  <p>Site fait par <%= link_to "Sandra", "sandravilder.com" %>  avec <i class="far fa-heart"></i></p>
+  <p>Site fait par <%= link_to "Sandra", "https://sandravilder.com/" %>  avec <i class="far fa-heart"></i></p>
 </div>
 
