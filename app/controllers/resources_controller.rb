@@ -2,18 +2,21 @@ class ResourcesController < ApplicationController
     skip_before_action :authenticate_user!, only: [ :index ]
 
   def index
-
+    @message = ""
     if params[:query].present?
       sql_query = " \
         resources.description ILIKE :query \
         OR resources.link ILIKE :query \
       "
       @resources = Resource.approved.where(sql_query, query: "%#{params[:query]}%")
+      if @resources.count == 0
+        @resources = Resource.last(2)
+        @message = "⚠️ Aucune resource ne correspond à votre recherche.
+        Vous pouvez proposer une ressource ou faire une autre cherche. ⚠️"
+      end
     else
       @resources = Resource.approved
       @resources = Resource.approved.where("#{params[:category]} = true") if params[:category]
-      # @resources = Resource.approved.where("#{params[:objectif]} = true") if params[:objectif]
-      # @resources = Resource.approved.where("#{params[:activity]} = true") if params[:activity]
     end
   end
 
