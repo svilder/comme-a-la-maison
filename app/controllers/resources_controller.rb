@@ -29,6 +29,7 @@ class ResourcesController < ApplicationController
     @resource.user_id = current_user.id
     if @resource.save
       redirect_to resources_path
+      # send mail
     else
       render :new
     end
