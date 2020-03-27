@@ -30,6 +30,8 @@ class ResourcesController < ApplicationController
     if @resource.save
       redirect_to resources_path
       # send mail
+      @user = current_user
+      ResourceMailer.with(user: @user).thanks.deliver_now
     else
       render :new
     end
