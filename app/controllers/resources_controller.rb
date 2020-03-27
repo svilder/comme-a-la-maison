@@ -8,15 +8,15 @@ class ResourcesController < ApplicationController
         resources.description ILIKE :query \
         OR resources.link ILIKE :query \
       "
-      @resources = Resource.approved.where(sql_query, query: "%#{params[:query]}%")
+      @resources = Resource.approved.where(sql_query, query: "%#{params[:query]}%").sort.reverse
       if @resources.count == 0
         @resources = Resource.last(2)
         @message = "⚠️ Aucune resource ne correspond à votre recherche.
         Vous pouvez proposer une ressource ou faire une autre cherche. ⚠️"
       end
     else
-      @resources = Resource.approved
-      @resources = Resource.approved.where("#{params[:category]} = true") if params[:category]
+      @resources = Resource.approved.sort.reverse
+      @resources = Resource.approved.where("#{params[:category]} = true").sort.reverse if params[:category]
     end
   end
 
