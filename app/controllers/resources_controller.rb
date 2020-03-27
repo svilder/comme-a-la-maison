@@ -28,8 +28,8 @@ class ResourcesController < ApplicationController
     @resource = Resource.new(resource_params)
     @resource.user_id = current_user.id
     if @resource.save
-      @user = current_user
-      ResourceMailer.with(user: @user).thanks.deliver_now
+      # @user = current_user
+      # ResourceMailer.with(user: @user).thanks.deliver_now
       redirect_to resources_path
     else
       render :new
