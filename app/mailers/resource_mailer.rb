@@ -5,8 +5,7 @@ class ResourceMailer < ApplicationMailer
   end
 
   def approved
-    @greeting = "Hi"
-
-    mail to: "to@example.org"
+    @user = params[:user]
+    mail(to: @user.email, subject: 'Votre ressource a été publiée')
   end
 end

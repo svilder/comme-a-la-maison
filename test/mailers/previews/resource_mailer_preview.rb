@@ -10,7 +10,8 @@ class ResourceMailerPreview < ActionMailer::Preview
 
   # Preview this email at http://localhost:3000/rails/mailers/resource_mailer/approved
   def approved
-    ResourceMailer.approved
+    user = User.first
+    ResourceMailer.with(user: user).approved
   end
 
 end

@@ -28,10 +28,9 @@ class ResourcesController < ApplicationController
     @resource = Resource.new(resource_params)
     @resource.user_id = current_user.id
     if @resource.save
-      redirect_to resources_path
-      # send mail
       @user = current_user
       ResourceMailer.with(user: @user).thanks.deliver_now
+      redirect_to resources_path
     else
       render :new
     end
@@ -66,6 +65,8 @@ class ResourcesController < ApplicationController
     @resource.user_id = current_user.id
     @resource.state = "approved"
     if @resource.save
+      @user = current_user
+      ResourceMailer.with(user: @user).approved.deliver_now
       redirect_to admin_resources_path
     else
       render "/admin/resources"
