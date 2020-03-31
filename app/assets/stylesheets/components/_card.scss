@@ -13,5 +13,17 @@
     }
     background-color: rgb(200, 200, 200);
     text-decoration: none;
+    .link {
+      display: block;
+    }
+    .activity-type,
+    .public,
+    .objectif {
+      display: none;
+    }
   }
+}
+
+.link {
+  display: none;
 }
