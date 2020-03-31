@@ -10,6 +10,24 @@ ActiveAdmin.register Resource do
     link_to "Retour sur l'index des resources", "/admin/resources"
   end
 
+  controller do
+    def create
+      super do |format|
+        redirect_to admin_resources_path and return
+      end
+    end
+    def update
+      super do |format|
+        redirect_to admin_resource_path and return
+      end
+    end
+    def destroy
+      super do |format|
+        redirect_to admin_resources_path and return
+      end
+    end
+  end
+
   index do
     selectable_column
     column "Lien" do |resource|
@@ -58,7 +76,7 @@ ActiveAdmin.register Resource do
       f.input :listen, as: :boolean, checked_value: true, unchecked_value: false
       f.input :play, as: :boolean, checked_value: true, unchecked_value: false
       f.input :make, as: :boolean, checked_value: true, unchecked_value: false
-      f.input :kids, as: :boolean, checked_value: true, unchecked_value: false
+      f.input :watch, as: :boolean, checked_value: true, unchecked_value: false
     end
     f.actions
   end
