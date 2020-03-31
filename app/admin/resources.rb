@@ -21,6 +21,11 @@ ActiveAdmin.register Resource do
         redirect_to admin_resource_path and return
       end
     end
+    def approve
+      super do |format|
+        redirect_to admin_resources_path and return
+      end
+    end
     def destroy
       super do |format|
         redirect_to admin_resources_path and return
