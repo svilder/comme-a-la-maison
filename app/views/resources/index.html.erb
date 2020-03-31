@@ -101,29 +101,30 @@
   <p><%= @message %></p>
   <div class="wrapper">
     <% @resources.each do |resource| %>
-      <div class="resource-card">
-        <p><%= link_to resource.link, resource.link, target: "_blank" %></p>
-        <p><%= resource.description %></p>
-        <div class="d-flex justify-content-between mb-4">
-          <div class="public">
-            <%= adult_icon(resource) %>
-            <%= kid_icon(resource) %>
+      <%= link_to resource.link, class: "resource-card",target: "_blank" do %>
+        <!-- <div class="resource-card"> -->
+          <p><%= resource.description %></p>
+          <div class="d-flex justify-content-between mb-4">
+            <div class="public mr-4">
+              <%= adult_icon(resource) %>
+              <%= kid_icon(resource) %>
+            </div>
+            <div class="objectif ml-4">
+              <%= learn_icon(resource) %>
+              <%= fun_icon(resource) %>
+            </div>
           </div>
-          <div class="objectif">
-            <%= learn_icon(resource) %>
-            <%= fun_icon(resource) %>
+          <div class="d-flex justify-content-center">
+            <div class="activity-type">
+              <%= read_icon(resource) %>
+              <%= listen_icon(resource) %>
+              <%= watch_icon(resource) %>
+              <%= play_icon(resource) %>
+              <%= make_icon(resource) %>
+            </div>
           </div>
-        </div>
-        <div class="d-flex justify-content-center">
-          <div class="activity-type">
-            <%= read_icon(resource) %>
-            <%= listen_icon(resource) %>
-            <%= watch_icon(resource) %>
-            <%= play_icon(resource) %>
-            <%= make_icon(resource) %>
-          </div>
-        </div>
-      </div>
+        <!-- </div> -->
+      <% end %>
     <% end %>
   </div>
 </div>

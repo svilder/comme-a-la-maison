@@ -4,11 +4,14 @@
   border-radius: 4px;
   padding: 32px;
   margin: 16px;
-  max-width: 408px;
-  a {
+  p {
     color: black;
   }
-  a:hover {
-    color: black;
+  &:hover {
+    p {
+      color: black;
+    }
+    background-color: rgb(200, 200, 200);
+    text-decoration: none;
   }
 }
