@@ -42,7 +42,6 @@ class ResourcesController < ApplicationController
 
   def update
     @resource = Resource.find(params[:id])
-    @resource.user_id = current_user.id
     if @resource.update(params[:resource])
       redirect_to resources_path
     else
@@ -52,12 +51,11 @@ class ResourcesController < ApplicationController
 
   def approve
     @resource = Resource.find(params[:id])
-    @resource.user_id = current_user.id
     @resource.state = "approved"
+    @user = @resource.user
     if @resource.save
-      @user = current_user
-      ResourceMailer.with(user: @user).approved.deliver_now
       redirect_to admin_resources_path
+      ResourceMailer.with(user: @user).approved.deliver_now
     else
       render "/admin/resources"
     end
