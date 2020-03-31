@@ -51,16 +51,6 @@ class ResourcesController < ApplicationController
   end
 
   def approve
-    approve_state
-  end
-
-  private
-
-  def resource_params
-    params.require(:resource).permit(:description, :link, :kids, :adults, :fun, :learn, :read, :listen, :play, :make, :watch, :user_id)
-  end
-
-  def approve_state
     @resource = Resource.find(params[:id])
     @resource.user_id = current_user.id
     @resource.state = "approved"
@@ -71,5 +61,15 @@ class ResourcesController < ApplicationController
     else
       render "/admin/resources"
     end
+  end
+
+  private
+
+  def resource_params
+    params.require(:resource).permit(:description, :link, :kids, :adults, :fun, :learn, :read, :listen, :play, :make, :watch, :user_id)
+  end
+
+  def approve_state
+
   end
 end
