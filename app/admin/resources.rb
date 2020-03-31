@@ -36,28 +36,29 @@ ActiveAdmin.register Resource do
   index do
     selectable_column
     column "Lien" do |resource|
-      link_to resource.link, admin_resource_path(resource)
+      resource.link
     end
     column "APPROVE", sortable: :state do |resource|
       link_to resource.state, approve_path(resource), method: :patch
     end
     column "Kids", sortable: :kids do |resource|
-      link_to resource.kids, admin_resource_path(resource)
+      resource.kids
     end
     column "Adults", sortable: :adults do |resource|
-      link_to resource.adults, admin_resource_path(resource)
+      resource.adults
     end
     column "Fun", sortable: :fun do |resource|
-      link_to resource.fun, admin_resource_path(resource)
+      resource.fun
     end
     column "Learn", sortable: :learn do |resource|
-      link_to resource.learn, admin_resource_path(resource)
+      resource.learn
     end
     column "id", sortable: :id do |resource|
-      link_to resource.id, admin_resource_path(resource)
+      resource.id
     end
     actions
   end
+
 
   filter :kids
   filter :adults
