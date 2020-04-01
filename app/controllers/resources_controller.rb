@@ -15,7 +15,7 @@ class ResourcesController < ApplicationController
         Vous pouvez proposer une ressource ou faire une autre cherche. ⚠️"
       end
     else
-      @resources = Resource.approved.sort.reverse
+      @resources = Resource.approved.shuffle
       @resources = Resource.approved.where("#{params[:category]} = true").sort.reverse if params[:category]
     end
   end
