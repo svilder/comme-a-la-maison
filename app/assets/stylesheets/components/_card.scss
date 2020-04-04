@@ -4,23 +4,26 @@
   border-radius: 4px;
   padding: 32px;
   margin: 16px;
+  width: 312px;
+  height: 296px;
   p {
     color: black;
   }
   &:hover {
     p {
       color: black;
+      overflow: scroll;
     }
     background-color: rgb(200, 200, 200);
     text-decoration: none;
-    // .link {
-    //   display: block;
-    // }
-    // .activity-type,
-    // .public,
-    // .objectif {
-    //   display: none;
-    // }
+    .link {
+      display: block;
+    }
+    .activity-type,
+    .public,
+    .objectif {
+      display: none;
+    }
   }
 }
 
